@@ -1,0 +1,72 @@
+﻿@model Entities.Concrete.Customer
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="row justify-content-center mainDiv">
+    @if (ViewBag.ProfileUpdateSuccess != null)
+    {
+        <div class="profileUpdateSuccessMessaege mt-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                 @ViewBag.ProfileUpdateSuccess
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    }
+    <div class="subDiv">
+        <div class="row subDivHeaderDiv text-center">
+            <p>Kişisel bilgileriniz</p>
+        </div>
+        <div class="row subDivUserIcon text-center">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="row personalInformationFormDiv">
+            @using (Html.BeginForm("MyProfile", "Profile", FormMethod.Post, new { @autocomplete = "off" }))
+            {
+                <div class="form-group pt-3">
+                    <label for="firstName">Ad</label>
+                    @Html.TextBoxFor(c => c.Ad, new { @id = "firstName", @class = "form-control", @type = "text", @maxlength = "30" })
+                </div>
+                <div class="form-group mt-4 pt-2">
+                    <label for="lastName">Soyad</label>
+                    @Html.TextBoxFor(c => c.Soyad, new { @id = "lastName", @class = "form-control", @type = "text", @maxlength = "30" })
+                </div>
+                <div class="form-group mt-4 pt-2">
+                    <label for="lastName">Telefon</label>
+                    @Html.TextBoxFor(c => c.Telefon, new { @id = "phone", @class = "form-control", @type = "text", @maxlength = "30" })
+                </div>
+                <div class="form-group mt-4 pt-2">
+                    <label for="email">Email</label>
+                    @Html.TextBoxFor(c => c.Email, new { @id = "email", @class = "form-control", @type = "email", @maxlength = "30" })
+                </div>
+                <div class="form-group mt-4 pt-2">
+                    <label for="dateOfBrith">Doğum Tarihi</label>
+                    @Html.TextBoxFor(c => c.DogumTarihi, "{0:yyyy-MM-dd}", new { @id = "dateOfBrith", @class = "form-control", @type = "date", @maxlength = "30" })
+                </div>
+                <div class="form-group mt-4 pt-2">
+                    <label class="row" style="margin-left:5px;">Cinsiyet</label>
+                    <div class="genderDiv">
+                        <label style="margin-right:20px;margin-left:7px;margin-top:5px;">
+                            @Html.RadioButtonFor(m => m.Cinsiyet, "1", new { @required = "required" }) Erkek
+                        </label>
+
+                        <label class="ml-3">
+                            @Html.RadioButtonFor(m => m.Cinsiyet, "2", new { @required = "required" }) Kadın
+                        </label>
+                    </div>
+                </div>
+                <div class="text-center mt-4 mb-3">
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                    <a class="btn btn-warning text-white" href="@Url.Action("PasswordUpdate","Profile")">Parola Güncelleme</a>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+@section CssFile{
+    <link href="@Url.Content("~/Contents/MyProfile.css")" rel="stylesheet" type="text/css" /> }

@@ -1,0 +1,21 @@
+﻿@using ReportViewerForMvc
+@{
+    ViewBag.Title = "UserReport";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@if (ViewBag.ReportViewer != null)
+{
+    <div class="row text-center justify-content-center mainDiv">
+        <h2 class="userReportsHeaderText">Kullanıcılar Raporu</h2>
+        <div class="subDiv">
+            @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+        </div>
+    </div>
+}
+
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/UserReport.css")" rel="stylesheet" type="text/css" /> }
+

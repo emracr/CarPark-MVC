@@ -1,0 +1,46 @@
+﻿.mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top:150px;
+}
+
+.subDiv {
+    width: 100%;
+    padding: 10px 60px 10px 60px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top: 15px solid rgb(212 76 76);
+    background-color: rgb(238 238 238);
+    height: auto;
+}
+
+.subDivHeaderDiv p {
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+.subDivUserIcon .fas {
+    font-size: 120px;
+    color: rgb(72 72 72);
+}
+
+.genderDiv {
+    background-color: rgb(255 255 255);
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(215 215 215);
+}
+
+.alert{
+    margin-top:-50px;
+    background:Red;
+}
+.alert {
+    background-image: linear-gradient(to right bottom, #b7e7ac, #b2e5a7, #aee3a1, #a9e09c, #a4de97);
+}

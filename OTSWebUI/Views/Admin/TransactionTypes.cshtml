@@ -1,0 +1,57 @@
+﻿@model List<Entities.Concrete.TransactionType>
+@{
+    ViewBag.Title = "TransactionTypes";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+    @if (TempData["TransactionLogTypeAddSuccess"] != null)
+    {
+        <div class="transactionTypeCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["TransactionLogTypeAddSuccess"]</p>
+        </div>
+    }
+    @if (TempData["TransactionLogTypeUpdateSuccess"] != null)
+    {
+        <div class="transactionTypeCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["TransactionLogTypeUpdateSuccess"]</p>
+        </div>
+    }
+    @if (TempData["TransactionLogTypeDeleteSuccess"] != null)
+    {
+        <div class="transactionTypeCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["TransactionLogTypeDeleteSuccess"]</p>
+        </div>
+    }
+    <div class="subDiv">
+        <h2 class="transactionTypesHeaderText">İşlem Log Tipleri</h2>
+        <div class="transactionTypeAddDiv">
+            <a href="@Url.Action("TransactionTypeAdd","Admin")" class="btn btn-success">İşlem Log Tipi Ekle</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>İşlem Tipi</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transactionType in Model)
+                {
+                    <tr>
+                        <td>@transactionType.Id</td>
+                        <td>@transactionType.TransactionName</td>
+                        <td><a href="/Admin/TransactionTypeUpdate/@transactionType.Id" class="transactionTypeUpdateIcon"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="/Admin/TransactionTypeDelete/@transactionType.Id" class="transactionTypeDeleteIcon"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminTransactionTypes.css")" rel="stylesheet" type="text/css" /> }

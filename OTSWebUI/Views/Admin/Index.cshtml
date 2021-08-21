@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="col-md-4 subDiv suvDiv1">
+        <a href="@Url.Action("Customers","Admin")">
+            <div class="customerIcon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="customerText">
+                <p>Kullanıcılar</p>
+            </div>
+            <div class="customerCount">
+                <p>@ViewBag.CustomerCount</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 subDiv suvDiv2">
+        <a href="@Url.Action("Reservations","Admin")">
+            <div class="reservationIcon">
+                <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="reservationText">
+                <p>Rezervasyonlar</p>
+            </div>
+            <div class="reservationCount">
+                <p>@ViewBag.ReservationCount</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 subDiv suvDiv3">
+        <a href="@Url.Action("LogIndex","Admin")">
+            <div class="logIcon">
+                <i class="fas fa-key"></i>
+            </div>
+            <div class="logText">
+                <p>Loglar</p>
+            </div>
+            <div class="logsCount">
+                <p>@ViewBag.LogsCount</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 subDiv suvDiv4">
+        <a href="@Url.Action("StatisticsAndReports","Admin")">
+            <div class="statisticAndReportIcon">
+                <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="statisticAndText">
+                <p class="row">İstatistikler ve Raporlar</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminIndex.css")" rel="stylesheet" type="text/css" /> }

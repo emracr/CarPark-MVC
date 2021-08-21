@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="col-md-6 subDiv">
+        <a href="@Url.Action("GetReservation","Reservation")"><p>Rezervasyon yap</p></a>
+        <div>
+            <i class="fas fa-car" style="font-size:100px;color:rgb(241 241 241)"></i>
+        </div>
+    </div>
+    <div class="col-md-6 subDiv">
+        <a href="@Url.Action("MyReservation","Reservation")"><p>Rezervasyonlarım</p></a>
+        <div>
+            <i class="fas fa-car" style="font-size:100px;color:rgb(241 241 241)"></i>
+        </div>
+    </div>
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/index.css")" rel="stylesheet" type="text/css" /> }

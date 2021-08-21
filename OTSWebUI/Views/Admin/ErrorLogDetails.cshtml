@@ -1,0 +1,53 @@
+﻿@model List<Entities.Concrete.ErrorLog>
+@{
+    ViewBag.Title = "ErrorLogDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="subDiv">
+        <h2 class="errorLogsHeaderText">Sistemde Meydana Gelen Hata'nın Detayı</h2>
+        @foreach (var error in Model)
+        {
+            <div class="errorDiv">
+                <h4 class="errorHeader">Hata Kodu</h4>
+                <p class="errorContent">@error.ErrorId.ToString()</p>
+            </div>
+            <div class="errorDiv">
+                <h4 class="errorHeader">Host</h4>
+                <p class="errorContent">@error.Host</p>
+            </div>
+            <div class="errorDiv">
+                <h4 class="errorHeader">Hata Tipi</h4>
+                <p class="errorContent">@error.Type</p>
+            </div>
+            <div class="errorDiv">
+                <h4 class="errorHeader">Hata'nın Kaynağı</h4>
+                <p class="errorContent">@error.Source</p>
+            </div>
+            <div class="errorDiv">
+                <h4 class="errorHeader">Hata Mesajı</h4>
+                <p class="errorContent">@error.Message</p>
+            </div>
+            <div class="errorDiv">
+                <h4 class="errorHeader">Hata Kodu</h4>
+                <p class="errorContent">@error.StatusCode</p>
+            </div>
+            <div class="errorDiv">
+                <h4 class="errorHeader">Hata'nın Meydana Geldiği Tarih</h4>
+                <p class="errorContent">@error.TimeUtc.ToLocalTime()</p>
+            </div>
+            <div class="errorDiv" style="margin-bottom:30px;">
+                <h4 class="errorHeader">Hata'nın XML Metni</h4>
+                <p class="errorContent">@error.AllXml</p>
+            </div>
+        }
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminErrorLogDetails.css")" rel="stylesheet" type="text/css" /> }
+

@@ -1,0 +1,48 @@
+﻿@model List<Entities.DTOs.RentDetailsDto>
+@{
+    ViewBag.Title = "MyReservation";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="justify-content-center mainDiv">
+    @if (TempData["ReservationCompleted"] != null)
+    {
+        <div class="reservationCompletedDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["ReservationCompleted"]</p>
+        </div>
+    }
+    <div class="justify-content-center manDiv">
+        <div class="reservationSummaryForm">
+            <div class="row rezervationCountDiv">
+                <p>@ViewBag.MyReservationCount adet rezervasyonunuz mevcut</p>
+            </div>
+            @foreach (var reservation in Model)
+            {
+                <div class="reservationSummaryDiv" id="reservation_Confirm">
+                    <div class="col-md-12">
+                        <p class="rezervationSummaryText">Rezervasyon Bilgileri</p>
+                    </div>
+                    <div class="row reservationSummary mt-5">
+                        <p class="row">Ad ve Soyad : <span class="col-md-6">@(reservation.CustomerFirstName + " " + reservation.CustomerLastName)</span></p>
+                        <p class="row">Araç Türü : <span class="col-md-6">@reservation.AracTuru</span></p>
+                        <p class="row">Araç Markası : <span class="col-md-6">@reservation.AracMarkasi</span></p>
+                        <p class="row">Plaka No : <span class="col-md-6">@reservation.PlakaNo</span></p>
+                        <p class="row">Araç Konumu : <span class="col-md-6">@reservation.AracKonumu</span></p>
+                        <p class="row">Bina Kat No : <span class="col-md-6">@reservation.BinaKatNo</span></p>
+                        <p class="row">Rezervasyon başlangıç tarihi : <span class="col-md-6">@reservation.KiraBaslangicTarihi.ToLongDateString()</span></p>
+                        <p class="row">Rezervasyon biriş tarihi : <span class="col-md-6">@reservation.KiraBitisTarihi.ToLongDateString()</span></p>
+                        <p class="row">Ücret : <span class="col-md-5">₺ @reservation.KiraUcreti</span></p>
+                    </div>
+                    <div class="text-center">
+                        <a href="/Reservation/CancelMyReservation/@reservation.Id" class="btn btn-danger btnRezervationCancel" id="rezervationCancel"><i class="fas fa-trash"></i><span style="margin-left:15px;">İptal et</span></a>
+                        <a href="/Reservation/CompleteReservation/@reservation.Id" class="btn btn-success btnRezervationComplete" id="rezervationCancel"><i class="fas fa-check"></i><span style="margin-left:15px;">Aracımı otoparktan al</span></a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/MyReservation.css")" rel="stylesheet" type="text/css" /> }
+

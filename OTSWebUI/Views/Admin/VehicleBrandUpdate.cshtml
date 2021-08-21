@@ -1,0 +1,43 @@
+﻿@model Entities.Concrete.VehicleBrand
+@{
+    ViewBag.Title = "VehicleBrandUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="subDiv">
+        <h2 class="vehicleBrandUpdateHeaderText">Araç Markası Güncelleme</h2>
+        <div class="vehicleBrandUpdateForm mt-5">
+            @using (Html.BeginForm("VehicleBrandUpdate", "Admin", FormMethod.Post, new { @autocomplete = "off" }))
+            {
+                <div class="col-md-12 mt-4">
+                    <label class="form-label" style="float:left;">Id</label>
+                    @Html.TextBoxFor(v=>v.Id, new { @class = "form-control", @type = "text", @disabled = "disabled" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="vehicleType" class="form-label" style="float:left;">Araç tipi</label>
+                    @if (ViewBag.VehicleTypes != null)
+                    {
+                        @Html.DropDownListFor(v => v.AracTuru, ViewBag.VehicleTypes as SelectList, new { @class = "form-control", @id = "vehicleType", @required = "required" })
+                    }
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="vehicleBrand" class="form-label" style="float:left;">Araç markası</label>
+                    @Html.TextBoxFor(v=>v.Marka, new { @class = "form-control", @id = "vehicleBrand", @type = "text", @required = "required", @maxlength = "50" })
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("VehicleBrands","Admin")" class="btn btn-warning mt-4" style="width:110px;margin-right:10px;color:dimgray;">İptal</a>
+                    <button type="submit" class="btn btn-primary mt-4 w-25">Güncelle</button>
+
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminVehicleBrandUpdate.css")" rel="stylesheet" type="text/css" /> }
+

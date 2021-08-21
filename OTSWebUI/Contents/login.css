@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../Images/car4.jpg);
+    background-size: cover;
+}
+.divMain{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    text-align: center;
+    color: rgb(240 , 240, 240);
+    font-size: 45px;
+    letter-spacing: 1px;
+    margin-top: 150px;
+    margin-bottom: 40px;
+}
+.divLogin{
+    width: 30%;
+    height: 500px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    opacity: 0.9;
+    border-top: 15px solid rgba(75, 75, 255, 0.87);
+}
+.form-group{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-control{
+    border: none;
+    border-bottom: 1px solid rgb(88, 88, 88);
+    border-radius: 0px;
+    padding: 6px 0px 2px 1px;
+}
+.form-control:focus{
+    box-shadow: none;
+    border-bottom: 2px solid rgb(8, 201, 21);
+}
+.form-group label{
+    font-size: 22px;
+}
+.btn{
+    font-size: 20px;
+    width: 30%;
+}
+.forgotMyPassword{
+    text-decoration: none;
+}
+
+.form-group-1{
+    margin-top: 8000px;
+}
+.register{
+    text-decoration: none;
+}
+.loginFailedAlert{
+    margin-top:-20px;
+    padding-bottom:10px;
+}

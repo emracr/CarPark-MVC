@@ -1,0 +1,43 @@
+﻿@model List<Entities.Concrete.Gender>
+@{
+    ViewBag.Title = "Genders";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+    @if (TempData["GenderUpdateSuccess"] != null)
+    {
+        <div class="genderUpdateSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["GenderUpdateSuccess"]</p>
+        </div>
+    }
+
+    <div class="subDiv">
+        <h2 class="gendersHeaderText">Cinsiyetler</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Cinsiyet</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var gender in Model)
+                {
+                    <tr>
+                        <td>@gender.Id</td>
+                        <td>@gender.Cinsiyet</td>
+                        <td><a href="/Admin/GenderUpdate/@gender.Id" class="genderUpdateIcon"><i class="fas fa-edit"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminGenders.css")" rel="stylesheet" type="text/css" /> }
+

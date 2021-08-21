@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "StatisticsAndReports";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+    
+    <div class="subDiv">
+        <h2 class="rezervarionStatisticsHeaderText"><span><i class="fas fa-chart-line"></i></span>İstatistikler</h2>
+        <div class="rezervarionStatisticsDiv">
+            <div class="lastOneMonthReservationStatistics">
+                <h5 class="lastOneMonthReservationStatisticsText">Son 1 aya ait genel istatistikler</h5>
+                <div class="row">
+                    <div class="totalReservationCountDiv col-md-4">
+                        <p class="totalReservationCountText">Toplam Rezervasyon Sayısı</p>
+                        <i class="fas fa-calendar-check"></i>
+                        <p class="totalReservationCount">@ViewBag.LastOneMonthTotalReservationCount</p>
+                    </div>
+                    <div class="totalMoneyEarnedDiv col-md-4">
+                        <p class="totalMoneyEarnedText">Rezervasyonlardan Kazanılan Hasılat</p>
+                        <i class="fas fa-coins"></i>
+                        <p class="totalMoneyEarned">@ViewBag.LastOneMonthTotalMoneyEarned</p>
+                    </div>
+                    <div class="numberOfNewMemberDiv col-md-4">
+                        <p class="numberOfNewMemberText">Sisteme Kayıt Olan Kullanıcı Sayısı</p>
+                        <i class="fas fa-users"></i>
+                        <p class="numberOfNewMember">@ViewBag.LastOneMonthNumberOfNewMembers</p>
+                    </div>
+                    <div class="visitSystemUserNumberDiv col-md-4">
+                        <p class="visitSystemUserNumberText">Sistemi Ziyaret Eden Kullanıcı Sayısı</p>
+                        <i class="fas fa-eye"></i>
+                        <p class="visitSystemUserNumber">@ViewBag.LastOneMonthVisitSystemUserNumber</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="genralStatisticsDiv">
+            <div class="lastOneMonthReservationStatistics">
+                <h5 class="lastOneMonthReservationStatisticsText">Genel İstatistikler</h5>
+                <div class="row">
+                    <div class="totalReservationCountDiv col-md-4">
+                        <p class="totalReservationCountText">Toplam Rezervasyon Sayısı</p>
+                        <i class="fas fa-calendar-check"></i>
+                        <p class="totalReservationCount">@ViewBag.TotalReservationCount</p>
+                    </div>
+                    <div class="totalMoneyEarnedDiv col-md-4">
+                        <p class="totalMoneyEarnedText">Rezervasyonlardan Kazanılan Hasılat</p>
+                        <i class="fas fa-coins"></i>
+                        <p class="totalMoneyEarned">@ViewBag.TotalMoneyEarned</p>
+                    </div>
+                    <div class="carParkOccupancyRateDiv col-md-4">
+                        <p class="carParkOccupancyRateText">Otoparkın Doluluk Oranı</p>
+                        <i class="fas fa-warehouse"></i>
+                        <p class="carParkOccupancyRate">@ViewBag.CarParkOccupancyRate %</p>
+                    </div>
+                    <div class="visitSystemUserNumberDiv col-md-4">
+                        <p class="visitSystemUserNumberText">Sistemi Ziyaret Eden Kullanıcı Sayısı</p>
+                        <i class="fas fa-eye"></i>
+                        <p class="visitSystemUserNumber">@ViewBag.VisitSystemUserNumber</p>
+                    </div>
+                    <div class="mostBookedMonthDiv col-md-4">
+                        <p class="mostBookedMonthText">En Çok Rezervasyon Yapılan Ay</p>
+                        <i class="fas fa-calendar-week"></i>
+                        <p class="mostBookedMonthNumber">@ViewBag.MostBookedMonth</p>
+                    </div>
+                    <div class="leastBookedMonthDiv col-md-4">
+                        <p class="leastBookedMonthText">En Az Rezervasyon Yapılan Ay</p>
+                        <i class="fas fa-calendar-week"></i>
+                        <p class="leastBookedMonthNumber">@ViewBag.LeastBookedMonth</p>
+                    </div>
+                    <div class="mostBookedVehicleTypeDiv col-md-4">
+                        <p class="mostBookedVehicleTypeText">En çok Rezervasyonu Yapılan Araç Türü</p>
+                        <i class="fas fa-car"></i>
+                        <p class="mostBookedVehicleTypeNumber">@ViewBag.MostBookedVehicleType</p>
+                    </div>
+                    <div class="userGenderRateDiv col-md-4">
+                        <p class="userGenderRateText">Kullanıcıların Cinsiyet Oranı</p>
+                        <p class="userGenderRate"><i class="fas fa-male"></i> Erkek Oranı : @ViewBag.ManUserRate %</p>
+                        <p class="userGenderRate"><i class="fas fa-female"></i> Kadın Oranı : @ViewBag.WomanUserRate %</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="reportsHeaderText"><span><img src="~/Images/report.png" alt="Report" style="padding-right:20px;"/></span>Raporlar</h2>
+        <div class="reportsDiv">
+            <div class="row" style="margin-left:210px;">
+                <a href="@Url.Action("UserReport","Report")" class="col-md-4">
+                    <div class="reportUser">
+                        <p>Kullanıcı Raporları</p>
+                    </div>
+                </a>
+                <a href="@Url.Action("ReservationReport","Report")" class="col-md-4">
+                    <div class="reportRezervation">
+                        <p>Rezervasyon Raporları</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/StatisticsAndReports.css")" rel="stylesheet" type="text/css" /> }
+

@@ -1,0 +1,42 @@
+﻿@model Entities.Concrete.Admin
+@{
+    ViewBag.Title = "AdminUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="subDiv">
+        <h2 class="adminUpdateHeaderText">Admin Güncelleme</h2>
+        <div class="adminUpdateForm mt-5">
+            @using (Html.BeginForm("AdminUpdate", "Admin", FormMethod.Post, new { @autocomplete = "off" }))
+            {
+                <div class="col-md-12 mt-4">
+                    <label for="adminFirstName" class="form-label" style="float:left;">Ad</label>
+                    @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control", @id = "adminFirstName", @type = "text", @required = "required", @maxlength = "30" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="adminLastName" class="form-label" style="float:left;">Soyad</label>
+                    @Html.TextBoxFor(a => a.LastName, new { @class = "form-control", @id = "adminLastName", @type = "text", @required = "required", @maxlength = "30" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="adminMail" class="form-label" style="float:left;">Mail</label>
+                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control", @id = "adminMail", @type = "email", @required = "required", @maxlength = "50" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="adminUserName" class="form-label" style="float:left;">Kullanıcı adı</label>
+                    @Html.TextBoxFor(a => a.UserName, new { @class = "form-control", @id = "adminUserName", @type = "text", @required = "required", @maxlength = "30" })
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("Admins","Admin")" class="btn btn-warning mt-4" style="width:110px;margin-right:10px;color:dimgray;">İptal</a>
+                    <button type="submit" class="btn btn-primary mt-4 w-25">Güncelle</button>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminUpdate.css")" rel="stylesheet" type="text/css" /> }

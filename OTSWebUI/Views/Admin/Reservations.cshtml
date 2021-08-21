@@ -1,0 +1,71 @@
+﻿@model List<Entities.DTOs.RentDetailsDto>
+@{
+    ViewBag.Title = "Reservations";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    @if (TempData["ReservationDeleteSuccess"] != null)
+    {
+        <div class="reservationDeleteSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["ReservationDeleteSuccess"]</p>
+        </div>
+    }
+    <div class="subDiv">
+        <h2 class="reservationsHeaderText">Rezervasyonlar</h2>
+        <table id="tableReservations" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>TC</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Araç Markası</th>
+                    <th>Plak No</th>
+                    <th>Arac Konumu</th>
+                    <th>Rezervasyon başl. tarihi</th>
+                    <th>Rezervasyon bitiş tarihi</th>
+                    <th>Araç Durumu</th>
+                    <th>Rezervasyon Ücreti</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reservation in Model)
+                {
+                    <tr>
+                        <td>@reservation.TC</td>
+                        <td>@reservation.CustomerFirstName.ToUpper()</td>
+                        <td>@reservation.CustomerLastName.ToUpper()</td>
+                        <td>@reservation.AracMarkasi</td>
+                        <td>@reservation.PlakaNo</td>
+                        <td>@reservation.AracKonumu</td>
+                        <td>@reservation.KiraBaslangicTarihi.ToShortDateString()</td>
+                        <td>@reservation.KiraBitisTarihi.ToShortDateString()</td>
+                        <td>@reservation.AracDurumu</td>
+                        <td>₺@reservation.KiraUcreti</td>
+                        <td><a href="/Admin/DeleteReservation/@reservation.Id" class="reservationDeleteIcon"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="~/content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('#tableReservations').DataTable();
+</script>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminListReservations.css")" rel="stylesheet" type="text/css" /> }
+

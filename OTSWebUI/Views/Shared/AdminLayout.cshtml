@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otopark Takip Sistemi</title>
+    <link rel="stylesheet" href="~/Contents/AdminLayout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="~/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    @RenderSection("CssFile", required: false)
+</head>
+<body>
+    <div class="navbarDiv">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="text-center">
+                    <div style="margin-left:80px;" ;padding:0px;"><a href="@Url.Action("Index","Admin")"><img src="~/Images/icon.png" alt="Logo"></a></div>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <div class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    </div>
+                    <div class="d-flex navRightDiv">
+                        <div>
+                            <p class="textUser">Merhaba Admin</p>
+                        </div>
+                        <div>
+                            <a href="@Url.Action("AdminProfile","Admin")"><i class="fas fa-user user"></i></a>
+                            <a href="@Url.Action("Logout","Admin")"><i class="fas fa-sign-out-alt exit"><span>Çıkış</span></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="side-bar active">
+        <div class="menu">
+            <div class="item"><a href="@Url.Action("Index","Admin")"><i class="fas fa-home"></i>Ana Sayfa</a></div>
+            <div class="item"><a href="@Url.Action("Customers","Admin")"><i class="fas fa-users"></i>Kullanıcılar</a></div>
+            <div class="item"><a href="@Url.Action("Reservations","Admin")"><i class="fas fa-calendar-check"></i>Rezervasyonlar</a></div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-key"></i>Loglar<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="@Url.Action("LoginLogs","Admin")" class="sub-item">Giriş Logları</a>
+                    <a href="@Url.Action("TransactionLogs","Admin")" class="sub-item">İşlem Logları</a>
+                    <a href="@Url.Action("ErrorLogs","Admin")" class="sub-item">Hata Logları</a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-table"></i>Tablolar<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="@Url.Action("Genders","Admin")" class="sub-item">Cinsiyetler</a>
+                    <a href="@Url.Action("VehicleStatus","Admin")" class="sub-item">Araç Durumları</a>
+                    <a href="@Url.Action("SecurityQuestions","Admin")" class="sub-item">Güvenlik Soruları</a>
+                    <a href="@Url.Action("TransactionTypes","Admin")" class="sub-item">İşlem Log Tipleri</a>
+                    <a href="@Url.Action("VehicleTypes","Admin")" class="sub-item">Araç Tipleri</a>
+                    <a href="@Url.Action("VehicleBrands","Admin")" class="sub-item">Araç Markaları</a>
+                    <a href="@Url.Action("VehicleLocations","Admin")" class="sub-item">Araç Konumları</a>
+                    <a href="@Url.Action("Admins","Admin")" class="sub-item">Adminler</a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-file-archive"></i>Arşivler<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="@Url.Action("ArchiveDeletedCustomers","Admin")" class="sub-item">Kullanıcılar</a>
+                    <a href="@Url.Action("ArchiveDeletedReservations","Admin")" class="sub-item">Rezervasyonlar</a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-cogs"></i>Ayarlar<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="@Url.Action("AdminProfile","Admin")" class="sub-item">Profilim</a>
+                    <a href="@Url.Action("AdminPasswordUpdate","Admin")" class="sub-item">Parola Güncelleme</a>
+                    <a href="@Url.Action("AdminAdd","Admin")" class="sub-item">Admin Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="renderBodyDiv">
+        @RenderBody()
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //jquery for toggle sub menus
+            $('.sub-btn').click(function () {
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.dropdown').toggleClass('rotate');
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</body>
+</html>

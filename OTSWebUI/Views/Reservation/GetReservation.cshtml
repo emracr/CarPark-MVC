@@ -1,0 +1,232 @@
+﻿@model Entities.Concrete.Rent
+@{
+    ViewBag.Title = "GetReservation";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="justify-content-center manDiv">
+    <div class="reservationForm">
+        @using (Html.BeginForm("GetReservation", "Reservation", FormMethod.Post, new { @autocomplete = "off" }))
+        {
+            <div class="reservationInformation" id="reservation_Information">
+                <div class="col-md-12">
+                    <p class="rezervationText">Rezervasyon Bilgileri</p>
+                </div>
+                <div class="justify-content-center ReservationIcon">
+                    <img src="~/Images/pencil.png" class="img-fluid" alt="Reservation" width="150">
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Araç Türü</label>
+                    @if (ViewBag.VehicleTypes != null)
+                    {
+                        @Html.DropDownList("AracTuru", ViewBag.VehicleTypes as SelectList, "--Araç Türünü Seçin--", new { @class = "form-control", @required = "required", @onchange = "VehicleBrandsActive()" })
+                    }
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label class="form-label">Araç Markası</label>
+                    @Html.DropDownListFor(m => m.AracMarkasi, new SelectList(" "), "--Araç Markasını Seçin--", new { @class = "form-control", @required = "required", @disabled = "disabled" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="plakaNo" class="form-label">Plaka No</label>
+                    @Html.TextBoxFor(p => p.PlakaNo, new { @class = "form-control", @id = "plakaNo", @type = "text", @placeholder = "Plaka No", @required = "required", @maxlength = "15" })
+                </div>
+                <div class="col-md-12  mt-4">
+                    <div class="form-group">
+                        <label for="rezervationStartDate" class="form-label">Rezervasyon Başlangıç Tarihi</label>
+                        @Html.TextBoxFor(t => t.KiraBaslangicTarihi, new { @class = "form-control", @id = "rezervationStartDate", @required = "required", @type = "date" })
+                    </div>
+                </div>
+                <div class="col-md-12  mt-4">
+                    <div class="form-group">
+                        <label for="rezervationEndDate" class="form-label">Rezervasyon Bitiş Tarihi</label>
+                        @Html.TextBoxFor(t => t.KiraBitisTarihi, new { @class = "form-control", @id = "rezervationEndDate", @required = "required", @type = "date", @onchange = "btnPaymentInformationActive()" })
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="button" class="btn btn-primary btnNexPaymentInformation" disabled="disabled" id="btnPaymentInformation" value="Ödemeye geç">
+                </div>
+            </div>
+            <div class="paymentInformation" id="payment_Information">
+                <div class="text-center">
+                    <div class="col-md-12 mb-5">
+                        <p class="rezervationText">Kredi/Banka Kartı Bilgileri</p>
+                    </div>
+                    <div class="justify-content-center creditCartIcon">
+                        <img src="~/Images/credit-card.png" class="img-fluid" alt="Credit Cart">
+                    </div>
+                    <div class="row text-center justify-content-center">
+                        <div class="row w-75">
+                            <label for="cartNumber" class="form-label mb-2" style="text-align:left">Kart Numarası</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="cartNumber" placeholder="1234" maxlength="4" required="required">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="5678" maxlength="4" required="required">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="9012" maxlength="4" required="required">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="3456" maxlength="4" required="required">
+                            </div>
+                        </div>
+                        <div class="row w-75">
+                            <label for="customerName" class="form-label mb-2 mt-3" style="text-align:left">Kart Sahibi</label>
+                            <div class="col">
+                                <input type="text" class="form-control" id="customerName" placeholder="EMRULLAH ACAR" maxlength="40" required="required">
+                            </div>
+                        </div>
+                        <div class="row w-75">
+                            <div class="row">
+                                <label for="expiresDate" class="form-label col-md-5 mb-2 mt-3" style="text-align:left">Son Kullanım Tarihi</label>
+                                <label for="ccv" class="form-label col-md-6  mb-2 mt-3" style="text-align:right;">CCV</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="expiresDate" placeholder="01" maxlength="2" required="required">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="expiresDate" placeholder="2025" maxlength="4" required="required">
+                            </div>
+                            <div class="col-md-3" style="margin-left:auto;margin-right:0px;">
+                                <input type="text" class="form-control" id="ccv" placeholder="789" maxlength="3" required="required" onkeydown="btnRezervationCompleteActive()">
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-warning btnBackReservationInformation" id="btngoBackReservationInformation">Geri dön</a>
+                    <button type="button" class="btn btn-success btnRezervationComplete" data-toggle="modal" data-target="#modalConfirmReservation" id="btnComplete" disabled="disabled">Rezervasyonu tamamla</button>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalConfirmReservation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Rezervasyon onayı</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Rezervasyonu tamamlamak üzeresiniz onaylıyor musunuz?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                            <button type="submit" class="btn btn-primary">Onayla</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $("#AracTuru").change(function () {
+            $.get("/Reservation/GetVehicleBrands", { vehicleType: $("#AracTuru").val() }, function (data) {
+                $("#AracMarkasi").empty();
+                $.each(data, function (index, row) {
+                    $("#AracMarkasi").append("<option value='" + row.Id + "'>" + row.Marka + "</option>")
+                });
+            });
+        })
+    });
+
+    function VehicleBrandsActive() {
+        document.getElementById("AracMarkasi").disabled = false;
+    }
+
+    function btnPaymentInformationActive() {
+        document.getElementById("btnPaymentInformation").disabled = false;
+    }
+
+    function btnRezervationCompleteActive() {
+        document.getElementById("btnComplete").disabled = false;
+    }
+
+    $("#btnPaymentInformation").click(function () {
+        $("reservationInformation").hide();
+        $("paymentInformation").show();
+    });
+
+    $(document).ready(function () {
+        $("#btnPaymentInformation").on("click", function () {
+            $("#reservation_Information").hide()
+            $("#payment_Information").show();
+        })
+    })
+
+    $(document).ready(function () {
+        $("#btngoBackReservationInformation").on("click", function () {
+            $("#payment_Information").hide();
+            $("#reservation_Information").show()
+        })
+    })
+
+    //Rezervason başlagıç tarihi için takvim min tarih için ayarlandı
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) { dd = '0' + dd }
+    if (mm < 10) { mm = '0' + mm }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("rezervationStartDate").setAttribute("min", today);
+
+    //Rezervason başlagıç tarihi için takvim max tarih için ayarlandı
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 13) { dd += 15; }
+    else { mm += 1; dd -= 15; }
+    if (mm > 12) { yyyy += 1; mm -= 30; }
+
+    if (dd < 10) { dd = '0' + dd }
+    if (mm < 10) { mm = '0' + mm }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("rezervationStartDate").setAttribute("max", today);
+
+    //Rezervason bitiş tarihi için takvim min tarih için ayarlandı
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    dd += 15;
+    if (dd < 10) { dd = '0' + dd }
+    if (mm < 10) { mm = '0' + mm }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("rezervationEndDate").setAttribute("min", today);
+
+    //Rezervason bitiş tarihi için takvim max tarih için ayarlandı
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear() + 1;
+
+    if (dd < 13) { dd += 15; }
+    else { mm += 1; dd -= 15; }
+    if (mm > 12) { yyyy += 1; mm -= 30; }
+
+    if (dd < 10) { dd = '0' + dd }
+    if (mm < 10) { mm = '0' + mm }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("rezervationEndDate").setAttribute("max", today);
+
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+@section CssFile{
+    <link href="@Url.Content("~/Contents/GetReservation.css")" rel="stylesheet" type="text/css" /> }
+

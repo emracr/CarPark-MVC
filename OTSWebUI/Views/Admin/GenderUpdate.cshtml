@@ -1,0 +1,37 @@
+﻿@model Entities.Concrete.Gender
+@{
+    ViewBag.Title = "GenderUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="subDiv">
+        <h2 class="genderUpdateHeaderText">Cinsiyet Güncelleme</h2>
+        <div class="genderUpdateForm mt-5">
+            @using (Html.BeginForm("GenderUpdate", "Admin", FormMethod.Post, new { @autocomplete = "off" }))
+            {
+                <div class="col-md-12 mt-4">
+                    <label for="gender" class="form-label" style="float:left;">Id</label>
+                    @Html.TextBoxFor(g => g.Id, new { @class = "form-control", @id = "gender", @type = "text", @disabled = "disabled" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="gender" class="form-label" style="float:left;">Cinsiyet</label>
+                    @Html.TextBoxFor(g => g.Cinsiyet, new { @class = "form-control", @id = "gender", @type = "text", @placeholder = "Cinsiyet", @required = "required", @maxlength = "15" })
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("Genders","Admin")" class="btn btn-warning mt-4" style="width:110px;margin-right:10px;color:dimgray;">İptal</a>
+                    <button type="submit" class="btn btn-primary mt-4">Güncelle</button>
+
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminGenderUpdate.css")" rel="stylesheet" type="text/css" /> }
+
+

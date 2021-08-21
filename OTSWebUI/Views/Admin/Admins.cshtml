@@ -1,0 +1,62 @@
+﻿@model List<Entities.Concrete.Admin>
+@{
+    ViewBag.Title = "Admins";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+    @if (TempData["AdminAddSuccess"] != null)
+    {
+        <div class="adminCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["AdminAddSuccess"]</p>
+        </div>
+    }
+    @if (TempData["AdminUpdateSuccess"] != null)
+    {
+        <div class="adminCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["AdminUpdateSuccess"]</p>
+        </div>
+    }
+    @if (TempData["AdminDeleteSuccess"] != null)
+    {
+        <div class="adminCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["AdminDeleteSuccess"]</p>
+        </div>
+    }
+    <div class="subDiv">
+        <h2 class="adminsHeaderText">Adminler</h2>
+        <div class="adminsAddDiv">
+            <a href="@Url.Action("AdminAdd","Admin")" class="btn btn-success">Admin Ekle</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Mail</th>
+                    <th>Kullanıcı adı</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var admin in Model)
+                {
+                    <tr>
+                        <td>@admin.FirstName</td>
+                        <td>@admin.LastName</td>
+                        <td>@admin.Email</td>
+                        <td>@admin.UserName</td>
+                        <td><a href="/Admin/AdminUpdate/@admin.Id" class="adminUpdateIcon"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="/Admin/AdminDelete/@admin.Id" class="adminDeleteIcon"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/Admins.css")" rel="stylesheet" type="text/css" /> }
+

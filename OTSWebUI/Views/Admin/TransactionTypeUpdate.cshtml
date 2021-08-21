@@ -1,0 +1,36 @@
+﻿@model Entities.Concrete.TransactionType
+@{
+    ViewBag.Title = "TransactionTypeUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="subDiv">
+        <h2 class="transacitonLogTypeUpdateHeaderText">İşlem Log Tipi Güncelleme</h2>
+        <div class="transacitonLogTypeUpdateForm mt-5">
+            @using (Html.BeginForm("TransactionTypeUpdate", "Admin", FormMethod.Post, new { @autocomplete = "off" }))
+            {
+                <div class="col-md-12 mt-4">
+                    <label class="form-label" style="float:left;">Id</label>
+                    @Html.TextBoxFor(g => g.Id, new { @class = "form-control", @type = "text", @disabled = "disabled" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="transactionLogType" class="form-label" style="float:left;">İşlem log tipi</label>
+                    @Html.TextBoxFor(g => g.TransactionName, new { @class = "form-control", @id = "transactionLogType", @type = "text", @required = "required", @maxlength = "100" })
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("TransactionTypes","Admin")" class="btn btn-warning mt-4" style="width:110px;margin-right:10px;color:dimgray;">İptal</a>
+                    <button type="submit" class="btn btn-primary mt-4 w-25">Güncelle</button>
+
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminTransactionLogTypeUpdate.css")" rel="stylesheet" type="text/css" /> }
+

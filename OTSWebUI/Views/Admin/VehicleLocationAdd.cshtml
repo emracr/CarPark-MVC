@@ -1,0 +1,36 @@
+﻿@model Entities.Concrete.VehicleLocation
+@{
+    ViewBag.Title = "VehicleLocationAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="subDiv">
+        <h2 class="vehicleLocationAddHeaderText">Araç Konumu</h2>
+        <div class="vehicleLocationAddForm mt-5">
+            @using (Html.BeginForm("VehicleLocationAdd", "Admin", FormMethod.Post, new { @autocomplete = "off" }))
+            {
+                <div class="col-md-12 mt-4">
+                    <label for="vehicleLocationAdd" class="form-label" style="float:left;">Araç konumu</label>
+                    @Html.TextBoxFor(v => v.Location, new { @class = "form-control", @id = "vehicleLocationAdd", @type = "text", @required = "required", @maxlength = "30" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="vehicleFloorAdd" class="form-label" style="float:left;">Kat</label>
+                    @Html.TextBoxFor(v => v.Floor, new { @class = "form-control", @id = "vehicleFloorAdd", @type = "text", @required = "required", @maxlength = "30" })
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("VehicleLocations","Admin")" class="btn btn-warning mt-4" style="width:110px;margin-right:10px;color:dimgray;">İptal</a>
+                    <button type="submit" class="btn btn-primary mt-4 w-25">Ekle</button>
+
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminVehicleLocationAdd.css")" rel="stylesheet" type="text/css" /> }
+

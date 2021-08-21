@@ -1,0 +1,58 @@
+﻿@model List<Entities.Concrete.SecurityQuestion>
+@{
+    ViewBag.Title = "SecurityQuestions";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+    @if (TempData["SecurityQuestionAddSuccess"] != null)
+    {
+        <div class="securityQuestionCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["SecurityQuestionAddSuccess"]</p>
+        </div>
+    }
+    @if (TempData["SecurityQuestionUpdateSuccess"] != null)
+    {
+        <div class="securityQuestionCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["SecurityQuestionUpdateSuccess"]</p>
+        </div>
+    }
+    @if (TempData["SecurityQuestionDeleteSuccess"] != null)
+    {
+        <div class="securityQuestionCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["SecurityQuestionDeleteSuccess"]</p>
+        </div>
+    }
+    <div class="subDiv">
+        <h2 class="securityQuestionsHeaderText">Güvenlik Soruları</h2>
+        <div class="securityQuestionAddDiv">
+            <a href="@Url.Action("SecurityQuestionAdd","Admin")" class="btn btn-success">Güvenlik Sorusu Ekle</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Güvenlik Sorusu</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var securityQuestion in Model)
+                {
+                    <tr>
+                        <td>@securityQuestion.Id</td>
+                        <td>@securityQuestion.GuvenlikSorusu</td>
+                        <td><a href="/Admin/SecurityQuestionUpdate/@securityQuestion.Id" class="securityQuestionUpdateIcon"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="/Admin/SecurityQuestionDelete/@securityQuestion.Id" class="securityQuestionDeleteIcon"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminSecurityQuestions.css")" rel="stylesheet" type="text/css" /> }
+

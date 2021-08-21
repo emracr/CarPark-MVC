@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "LogIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="col-md-4 subDiv suvDiv1">
+        <a href="@Url.Action("LoginLogs","Admin")">
+            <div class="loginLogIcon">
+                <i class="fas fa-key"></i>
+            </div>
+            <div class="loginLogText">
+                <p>Giriş Logları</p>
+            </div>
+            <div class="loginLogCount">
+                <p>@ViewBag.LoginLogsCount</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 subDiv suvDiv2">
+        <a href="@Url.Action("TransactionLogs","Admin")">
+            <div class="transactionLogIcon">
+                <i class="fas fa-key"></i>
+            </div>
+            <div class="transactionLogText">
+                <p>İşlem Logları</p>
+            </div>
+            <div class="transactionLogCount">
+                <p>@ViewBag.TransactionLogsCount</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 subDiv suvDiv3">
+        <a href="@Url.Action("ErrorLogs","Admin")">
+            <div class="errorLogIcon">
+                <i class="fas fa-bug"></i>
+            </div>
+            <div class="errorLogText">
+                <p>Hata Logları</p>
+            </div>
+            <div class="errorLogCount">
+                <p>@ViewBag.ErrorLogsCount</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminLogIndex.css")" rel="stylesheet" type="text/css" /> }
+

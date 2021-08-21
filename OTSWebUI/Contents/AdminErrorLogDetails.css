@@ -1,0 +1,41 @@
+﻿.mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 100%;
+    height: auto;
+    margin-top: 160px;
+}
+
+.subDiv {
+    margin-top: -50px;
+    width: 80%;
+}
+.errorLogsHeaderText {
+    margin-bottom: 30px;
+    color: rgb(70,70,70);
+}
+.errorDiv {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    height: auto;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background: rgb(26, 130, 102);
+}
+.errorHeader {
+    margin-top:5px;
+    color: rgb(240,240,240);
+    padding-bottom:10px;
+}
+.errorContent {
+    margin-top: 22px;
+    color: rgb(240,240,240);
+    font-size:17px;
+    word-wrap:break-word;
+}

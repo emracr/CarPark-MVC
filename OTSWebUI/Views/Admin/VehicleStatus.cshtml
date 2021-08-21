@@ -1,0 +1,58 @@
+﻿@model List<Entities.Concrete.RentalSituation>
+@{
+    ViewBag.Title = "VehicleStatus";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+    @if (TempData["VehicleStateUpdateSuccess"] != null)
+    {
+        <div class="vehicleStateCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["VehicleStateUpdateSuccess"]</p>
+        </div>
+    }
+    @if (TempData["VehicleStateAddSuccess"] != null)
+    {
+        <div class="vehicleStateCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["VehicleStateAddSuccess"]</p>
+        </div>
+    }
+    @if (TempData["VehicleStateDeleteSuccess"] != null)
+    {
+        <div class="vehicleStateCrudResultSuccessDiv">
+            <p><span><i class="fas fa-check-circle"></i></span>@TempData["VehicleStateDeleteSuccess"]</p>
+        </div>
+    }
+    <div class="subDiv">
+        <h2 class="vehicleStatusHeaderText">Araç Durumları</h2>
+        <div class="vehicleStateAddDiv">
+            <a href="@Url.Action("VehicleStateAdd","Admin")" class="btn btn-success">Araç Durumu Ekle</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Durum</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehicleState in Model)
+                {
+                    <tr>
+                        <td>@vehicleState.Id</td>
+                        <td>@vehicleState.KiraDurumu</td>
+                        <td><a href="/Admin/VehicleStatusUpdate/@vehicleState.Id" class="vehicleUpdateUpdateIcon"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="/Admin/VehicleStateDelete/@vehicleState.Id" class="vehicleStateDeleteIcon"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminVehicleStatus.css")" rel="stylesheet" type="text/css" /> }
+

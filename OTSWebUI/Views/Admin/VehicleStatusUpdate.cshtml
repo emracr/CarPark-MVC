@@ -1,0 +1,35 @@
+﻿@model Entities.Concrete.RentalSituation
+@{
+    ViewBag.Title = "VehicleStatusUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row text-center justify-content-center mainDiv">
+
+    <div class="subDiv">
+        <h2 class="vehicleStateUpdateHeaderText">Araç Durumu Güncelleme</h2>
+        <div class="vehicleStateUpdateForm mt-5">
+            @using (Html.BeginForm("VehicleStatusUpdate", "Admin", FormMethod.Post, new { @autocomplete = "off" }))
+            {
+                <div class="col-md-12 mt-4">
+                    <label class="form-label" style="float:left;">Id</label>
+                    @Html.TextBoxFor(g => g.Id, new { @class = "form-control", @type = "text", @disabled = "disabled" })
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="vehicleState" class="form-label" style="float:left;">Araç Durumu</label>
+                    @Html.TextBoxFor(g => g.KiraDurumu, new { @class = "form-control", @id = "vehicleState", @type = "text", @required = "required", @maxlength = "50" })
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("VehicleStatus","Admin")" class="btn btn-warning mt-4" style="width:110px;margin-right:10px;color:dimgray;">İptal</a>
+                    <button type="submit" class="btn btn-primary mt-4">Güncelle</button>
+
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+@section CssFile{
+    <link href="@Url.Content("~/Contents/AdminVehicleStateUpdate.css")" rel="stylesheet" type="text/css" /> }

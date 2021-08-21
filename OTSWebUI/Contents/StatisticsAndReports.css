@@ -1,0 +1,343 @@
+﻿.mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 100%;
+    height: auto;
+    margin-top: 160px;
+}
+
+.subDiv {
+    margin-top: -50px;
+    width: 70%;
+}
+.subDiv .fas{
+    font-size:60px;
+    color:rgb(39, 126, 227);
+    margin-right:20px;
+}
+.rezervarionStatisticsHeaderText {
+    margin-bottom: 25px;
+    color: rgb(70,70,70);
+}
+.lastOneMonthReservationStatisticsText {
+    padding-top: 40px;
+    color: rgb(90,90,90);
+    font-weight:700;
+}
+.rezervarionStatisticsDiv {
+    width: 100%;
+    height: auto;
+    background-color: rgba(200,200,200,0.6);
+    border-radius: 10px;
+    padding-bottom:50px;
+}
+.totalReservationCountDiv {
+    width: 20%;
+    height: auto;
+    background: rgba(37, 127, 245,0.8);
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+.totalReservationCountText{
+    font-size:15px;
+    color:rgb(250,250,250);
+    font-weight:500;
+    padding:30px 5px 5px 5px;
+}
+.totalReservationCountDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left:auto;
+    margin-right:auto;
+}
+.totalReservationCount{
+    padding:20px 0px 15px 0px;
+    font-size:20px;
+    color:rgb(250,250,250);
+}
+.totalMoneyEarnedDiv {
+    width: 20%;
+    height: auto;
+    background: rgba(65, 204, 91,0.8);
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+
+.totalMoneyEarnedText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 5px 5px 5px;
+}
+
+.totalMoneyEarnedDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.totalMoneyEarned {
+    padding: 20px 0px 15px 0px;
+    font-size: 20px;
+    color: rgb(250,250,250);
+}
+.numberOfNewMemberDiv {
+    width: 20%;
+    height: auto;
+    background: rgba( 214, 84, 84 );
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+
+.numberOfNewMemberText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 5px 5px 5px;
+}
+
+.numberOfNewMemberDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.numberOfNewMember {
+    padding: 20px 0px 15px 0px;
+    font-size: 20px;
+    color: rgb(250,250,250);
+}
+.visitSystemUserNumberDiv {
+    width: 20%;
+    height: auto;
+    background: rgba( 199, 169, 36 );
+    border-radius: 10px;
+    margin: 60px 20px 0px 45px;
+}
+
+.visitSystemUserNumberText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 5px 5px 5px;
+}
+
+.visitSystemUserNumberDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.visitSystemUserNumber {
+    padding: 20px 0px 15px 0px;
+    font-size: 20px;
+    color: rgb(250,250,250);
+}
+.carParkOccupancyRateDiv {
+    width: 20%;
+    height: auto;
+    background: rgba( 10, 146, 173 );
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+
+.carParkOccupancyRateText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 20px 5px 20px;
+}
+
+.carParkOccupancyRateDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carParkOccupancyRate {
+    padding: 20px 0px 15px 0px;
+    font-size: 20px;
+    color: rgb(250,250,250);
+}
+
+.userGenderRateDiv {
+    width: 20%;
+    height: auto;
+    background-image: linear-gradient(to right, #3c5aeb, #8150e3, #ad42d7, #d031c7, #eb1ab4);
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+
+.userGenderRateText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 5px 5px 5px;
+}
+
+.userGenderRateDiv .fas {
+    font-size: 25px;
+    color: rgb(230,230,230);
+    margin-right:5px;
+}
+
+.userGenderRate {
+    padding: 0px 0px 15px 0px;
+    font-size: 16px;
+    color: rgb(250,250,250);
+}
+
+.mostBookedMonthDiv {
+    width: 20%;
+    height: auto;
+    background-image: radial-gradient(circle, #396639, #41653a, #48653b, #4f643d, #546440);
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+
+.mostBookedMonthText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 5px 5px 5px;
+}
+
+.mostBookedMonthDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mostBookedMonthNumber {
+    padding: 20px 0px 15px 0px;
+    font-size: 20px;
+    color: rgb(250,250,250);
+}
+
+.leastBookedMonthDiv {
+    width: 20%;
+    height: auto;
+    background-image: radial-gradient(circle, #906041, #895b3e, #83573a, #7c5237, #764e34);
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+
+.leastBookedMonthText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 5px 5px 5px;
+}
+
+.leastBookedMonthDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leastBookedMonthNumber {
+    padding: 20px 0px 15px 0px;
+    font-size: 20px;
+    color: rgb(250,250,250);
+}
+
+
+
+.mostBookedVehicleTypeDiv {
+    width: 20%;
+    height: auto;
+    background:rgb(191, 75, 110);
+    border-radius: 10px;
+    margin: 60px 0px 0px 45px;
+}
+
+.mostBookedVehicleTypeText {
+    font-size: 15px;
+    color: rgb(250,250,250);
+    font-weight: 500;
+    padding: 30px 5px 5px 5px;
+}
+
+.mostBookedVehicleTypeDiv .fas {
+    font-size: 40px;
+    color: rgb(230,230,230);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mostBookedVehicleTypeNumber {
+    padding: 20px 0px 15px 0px;
+    font-size: 20px;
+    color: rgb(250,250,250);
+}
+
+.genralStatisticsDiv {
+    margin-top: 30px;
+    margin-bottom:30px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(200,200,200,0.6);
+    border-radius: 10px;
+    padding-bottom: 50px;
+}
+
+.reportsHeaderText {
+    margin-bottom: 25px;
+    margin-top:70px;
+    color: rgb(70,70,70);
+}
+.reportsDiv {
+    width: 100%;
+    background-color: rgba(200,200,200,0.6);
+    border-radius: 10px;
+    padding-bottom: 25px;
+    margin-bottom:40px;
+    text-align:center;
+}
+.reportsDiv a{
+    text-decoration:none;
+}
+.reportUser{
+    width:100%;
+    height:auto;
+    border-radius:15px;
+    cursor:pointer;
+    background:rgba( 214, 84, 84 );
+    text-align:center;
+    margin:30px 0px 0px 30px;
+    margin-bottom:auto;
+}
+.reportUser p{
+    color:rgb(241 241 241);
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+    padding:10px;
+}
+.reportRezervation {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    cursor: pointer;
+    background: rgb(39 163 62);
+    text-align: center;
+    margin: 30px 0px 0px 30px;
+    margin-bottom: auto;
+}
+.reportRezervation p{
+    color:rgb(241 241 241);
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+    padding:10px;
+}

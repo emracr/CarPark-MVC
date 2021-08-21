@@ -1,0 +1,97 @@
+﻿.mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 100%;
+    height:auto;
+    margin-top: 160px;
+}
+.subDiv{
+    width:20%;
+    height:200px;
+    margin:20px;
+    border-radius:5px;
+}
+.suvDiv1 {
+    background-color: rgb(235, 75, 75);
+}
+.suvDiv2 {
+    background-color: rgb(82 202 101);
+}
+.suvDiv3 {
+    background-color: rgb(139, 76, 207);
+}
+.suvDiv4 {
+    background-color: rgb(237, 165, 64);
+}
+.customerIcon .fas{
+    font-size:45px;
+    margin-top:30px;
+    color:rgb(242 242 242);
+}
+.reservationIcon .fas {
+    font-size: 45px;
+    margin-top: 30px;
+    color: rgb(242 242 242);
+}
+.logIcon .fas {
+    font-size: 45px;
+    margin-top: 30px;
+    color: rgb(242 242 242);
+}
+.statisticAndReportIcon .fas {
+    font-size: 45px;
+    margin-top: 30px;
+    color: rgb(242 242 242);
+}
+.suvDiv1 a {
+    text-decoration: none;
+}
+.suvDiv2 a {
+    text-decoration: none;
+}
+.suvDiv3 a {
+    text-decoration: none;
+}
+.suvDiv4 a {
+    text-decoration: none;
+}
+.customerText {
+    font-size: 22px;
+    margin-top:15px;
+    color: rgb(240 240 240);
+}
+.reservationText {
+    font-size: 22px;
+    margin-top: 15px;
+    color: rgb(240 240 240);
+}
+.logText {
+    font-size: 22px;
+    margin-top: 15px;
+    color: rgb(240 240 240);
+}
+.statisticAndText {
+    font-size: 22px;
+    margin-top: 15px;
+    color: rgb(240 240 240);
+    padding:0px 150px 0px 110px;
+}
+.customerCount {
+    font-size: 20px;
+    margin-top: 10px;
+    color: rgb(240 240 240);
+}
+.reservationCount {
+    font-size: 20px;
+    margin-top: 10px;
+    color: rgb(240 240 240);
+}
+.logsCount {
+    font-size: 20px;
+    margin-top: 10px;
+    color: rgb(240 240 240);
+}

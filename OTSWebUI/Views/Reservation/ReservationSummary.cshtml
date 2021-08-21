@@ -1,0 +1,44 @@
+﻿@model Entities.Concrete.Rent
+@{
+    ViewBag.Title = "ReservationSummary";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="justify-content-center manDiv">
+    <div class="reservationConfirmForm">
+        <div class="reservationSuccessMessaege mt-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Rezervasyon alma işlemi başarılı.</strong> Aracınız için otoparkımızda yer rezerve edilmiştir.
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="reservationConfirmDiv" id="reservation_Confirm">
+            <div class="col-md-12">
+                <p class="rezervationConfirmText">Rezervasyon Özeti</p>
+            </div>
+            <div class="justify-content-center ReservationConfirmIcon">
+                <img src="~/Images/information.png" class="img-fluid" alt="Reservation" width="150">
+            </div>
+            <div class="row reservationSummary mt-5">
+                <p class="row">Ad ve Soyad : <span class="col-md-6">@ViewBag.UserName</span></p>
+                <p class="row">Araç Türü : <span class="col-md-6">@ViewBag.VehicleType</span></p>
+                <p class="row">Araç Markası : <span class="col-md-6">@ViewBag.VehicleBrand</span></p>
+                <p class="row">Plaka No : <span class="col-md-6">@Html.ValueFor(r => r.PlakaNo)</span></p>
+                <p class="row">Araç Konumu : <span class="col-md-6">@ViewBag.VehicleLocation</span></p>
+                <p class="row">Bina Kat No : <span class="col-md-6">@ViewBag.VehicleLocationFloor</span></p>
+                <p class="row">Rezervasyon başlangıç tarihi : <span class="col-md-6">@ViewBag.ReserveStartDate</span></p>
+                <p class="row">Rezervasyon bitiş tarihi : <span class="col-md-6">@ViewBag.ReserveEndDate</span></p>
+                <p class="row">Ücret : <span class="col-md-5">₺ @Html.ValueFor(r => r.KiraUcreti)</span></p>
+            </div>
+            <div class="text-center">
+                <a href="@Url.Action("Index","Home")" class="btn btn-success btnRezervationConfirmComplete" id="btnComplete">Ana sayfaya dön</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+@section CssFile{
+    <link href="@Url.Content("~/Contents/ReservationConfirm.css")" rel="stylesheet" type="text/css" /> }
+

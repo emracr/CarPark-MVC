@@ -1,0 +1,62 @@
+﻿.mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 100%;
+    height: auto;
+    margin-top: 160px;
+}
+
+.subDiv{
+    width:100%;
+    margin-top:-50px;
+    margin-bottom:30px;
+}
+.table {
+    background-color: rgb(240 240 240);
+}
+.table thead tr {
+    color: rgb(250 250 250);
+    background-color: rgb(83, 142, 237);
+}
+.table tbody{
+    background-color: rgb(240 240 240);
+}
+.table th {
+    padding: 15px;
+    font-weight: 500;
+}
+.table td{
+    padding:15px;
+}
+.reservationDeleteIcon .fas {
+    color: rgb(235, 69, 47);
+    text-decoration: none;
+}
+.reservationDeleteIcon :hover {
+    color: rgb(235, 69, 47);
+    font-size: 20px;
+}
+.reservationDeleteSuccessDiv {
+    margin-top: -50px;
+    margin-bottom: 70px;
+    width: 25%;
+    background-color: rgb(70, 194, 107);
+}
+.reservationDeleteSuccessDiv p{
+    padding:10px;
+    margin-top:auto;
+    margin-bottom:auto;
+    color:rgb(241 241 241);
+}
+.reservationDeleteSuccessDiv span{
+    margin-right:20px;
+    font-size:20px;
+}
+.reservationsHeaderText {
+    margin-bottom: 25px;
+    color: rgb(70,70,70);
+}
