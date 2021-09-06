@@ -65,7 +65,7 @@ html, body{
 }
 
 .bg-purple {
-    background-image: linear-gradient(to right bottom, #802c6a, #722461, #641c59, #571550, #4a0d47);
+    background: url(../Images/bg_purple.png);
     background-repeat: repeat-x;
     background-size: cover;
     background-position: left top;
