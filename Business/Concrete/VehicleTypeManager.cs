@@ -13,9 +13,11 @@ namespace Business.Concrete
     public class VehicleTypeManager : IVehicleTypeService
     {
         IVehicleTypeDal _vehicleTypeDal;
-        public VehicleTypeManager(IVehicleTypeDal vehicleTypeDal)
+        IVehicleBrandService _vehicleBrandService;
+        public VehicleTypeManager(IVehicleTypeDal vehicleTypeDal, IVehicleBrandService vehicleBrandService)
         {
             _vehicleTypeDal = vehicleTypeDal;
+            _vehicleBrandService = vehicleBrandService;
         }
 
         public IResult Add(VehicleType vehicleType)
@@ -26,6 +28,7 @@ namespace Business.Concrete
 
         public IResult Delete(VehicleType vehicleType)
         {
+            DeleteVehicleBrandRelationships(vehicleType.Id);   
             _vehicleTypeDal.Delete(vehicleType);
             return new SuccessResult(Messages.VehicleTypeDeleted);
         }
@@ -44,6 +47,19 @@ namespace Business.Concrete
         {
             _vehicleTypeDal.Update(vehicleType);
             return new SuccessResult(Messages.VehicleTypeUpdated);
+        }
+
+        private void DeleteVehicleBrandRelationships(int vehicleTypeId)
+        {
+            var vehicleBrands = _vehicleBrandService.GetByVehicleTypeId(vehicleTypeId).Data;
+
+            if (vehicleBrands.Count > 0)
+            {
+                foreach (var vehicleBrand in vehicleBrands)
+                {
+                    _vehicleBrandService.Delete(vehicleBrand);
+                }
+            }
         }
     }
 }

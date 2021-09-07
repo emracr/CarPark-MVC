@@ -40,6 +40,11 @@ namespace Business.Concrete
             return new SuccessDataResult<VehicleBrand>(_vehicleBrandDal.Get(v => v.Id == vehicleBrandId), Messages.VehicleBrandListed);
         }
 
+        public IDataResult<List<VehicleBrand>> GetByVehicleTypeId(int vehicleTypeId)
+        {
+            return new SuccessDataResult<List<VehicleBrand>>(_vehicleBrandDal.GetAll(v => v.AracTuru == vehicleTypeId));
+        }
+
         public IDataResult<List<VehicleBrandDetailsDto>> GetVehicleBrandDetails()
         {
             return new SuccessDataResult<List<VehicleBrandDetailsDto>>(_vehicleBrandDal.GetVehicleBrandDetails());

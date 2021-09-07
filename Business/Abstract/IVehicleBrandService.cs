@@ -12,6 +12,7 @@ namespace Business.Abstract
         IDataResult<List<VehicleBrand>> GetAll();
         IDataResult<List<VehicleBrandDetailsDto>> GetVehicleBrandDetails();
         IDataResult<VehicleBrand> GetById(int vehicleBrandId);
+        IDataResult<List<VehicleBrand>> GetByVehicleTypeId(int vehicleTypeId);
         IResult Add(VehicleBrand vehicleBrand);
         IResult Delete(VehicleBrand vehicleBrand);
         IResult Update(VehicleBrand vehicleBrand);

@@ -5,7 +5,12 @@
 }
 
 body {
-    background-image: radial-gradient(circle, #559081, #2e8190, #396d94, #5e5382, #73395a);
+    background: url(../Images/bg_purple.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: left top;
+    height: 100%;
+    overflow: hidden;
 }
 .divMain{
     padding: 0;

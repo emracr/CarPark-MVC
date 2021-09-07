@@ -12,21 +12,44 @@
     width: 50%;
     height: 220px;
     cursor: pointer;
-    background: #845EC2;
+    background: rgb(240, 240, 240);
     margin: 50px;
     transition-duration: 0.5s;
     border-radius: 10px;
 }
+/*.subDiv-1 {
+    border-left: 15px solid rgb(31, 142, 222);
+}
+.subDiv-2 {
+    border-left: 15px solid rgb(200 60 60);
+}*/
 .subDiv p{
     font-size:25px;
-    color:rgb(241 241 241);
+    color:rgb(80, 80, 80);
     margin-top:35px;
-}
-.subDiv:hover{
-    background-color: rgb(113 29 113);
-    transition-duration:0.7s;
 }
 
 .subDiv a{
     text-decoration:none;
+}
+.subDiv .fas{
+    font-size: 100px;
+    color: rgb(100, 100, 100);
+}
+
+.subDiv-1 .fas {
+    color: rgb(31, 142, 222);
+}
+
+.subDiv-2 .fas {
+    color: rgb(200 60 60);
+}
+
+.subDiv-1:hover {
+    box-shadow: -15px 0px rgb(31, 142, 222);
+    transition-duration: 0.7s;
+}
+.subDiv-2:hover {
+    box-shadow: -15px 0px rgb(200 60 60);
+    transition-duration: 0.7s;
 }
