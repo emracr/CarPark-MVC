@@ -51,7 +51,7 @@ namespace OTSWebUI.Controllers
             Rent reservevation = new Rent();
             reservevation.CustomerId = Convert.ToInt32(HttpContext.User.Identity.Name);
             reservevation.AracMarkasi = rent.AracMarkasi;
-            reservevation.AracKonumu = ReserveLocation();
+            reservevation.AracKonumu = 0;
             reservevation.PlakaNo = rent.PlakaNo;
             reservevation.KiraBaslangicTarihi = rent.KiraBaslangicTarihi;
             reservevation.KiraBitisTarihi = rent.KiraBitisTarihi;
@@ -107,59 +107,6 @@ namespace OTSWebUI.Controllers
             var vehicleBrand = _vehicleBrandService.GetById(vehicleId).Data;
             var vehicleType = _vehicleTypeService.GetById(vehicleBrand.AracTuru);
             return vehicleType.Data.AracTuru;
-        }
-        public int ReserveLocation()
-        {
-            int location = 0;
-            bool locationFind = false;
-
-            var vehicleLocations = _vehicleLocationService.GetAll().Data.ToList();
-            var rents = _rentService.GetAll().Data.ToList();
-
-            foreach (var vehicleLocation in vehicleLocations)
-            {
-                foreach (var rent in rents)
-                {
-                    if (vehicleLocation.Id == rent.AracKonumu && rent.AracDurumu == 1)
-                    {
-                        locationFind = false;
-                        break;
-                    }
-                    else
-                    {
-                        location = vehicleLocation.Id;
-                        locationFind = true;
-                    }
-                }
-                if (locationFind)
-                {
-                    break;
-                }
-                else
-                {
-                    foreach (var vehicleLocation2 in vehicleLocations)
-                    {
-                        foreach (var rent in rents)
-                        {
-                            if (vehicleLocation2.Id == rent.AracKonumu)
-                            {
-                                locationFind = false;
-                                break;
-                            }
-                            else
-                            {
-                                location = vehicleLocation2.Id;
-                                locationFind = true;
-                            }
-                        }
-                        if (locationFind)
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-            return location;
         }
     }
 }

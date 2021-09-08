@@ -17,12 +17,12 @@
     transition-duration: 0.5s;
     border-radius: 10px;
 }
-/*.subDiv-1 {
+.subDiv-1 {
     border-left: 15px solid rgb(31, 142, 222);
 }
 .subDiv-2 {
     border-left: 15px solid rgb(200 60 60);
-}*/
+}
 .subDiv p{
     font-size:25px;
     color:rgb(80, 80, 80);
@@ -46,10 +46,10 @@
 }
 
 .subDiv-1:hover {
-    box-shadow: -15px 0px rgb(31, 142, 222);
+    border-left: 15px solid rgb(5 85 142);
     transition-duration: 0.7s;
 }
 .subDiv-2:hover {
-    box-shadow: -15px 0px rgb(200 60 60);
+    border-left: 15px solid rgb(142 14 14);
     transition-duration: 0.7s;
 }

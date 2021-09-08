@@ -13,13 +13,16 @@ namespace Business.Concrete
     public class RentManager : IRentService
     {
         IRentDal _rentDal;
-        public RentManager(IRentDal rentDal)
+        IVehicleLocationService _vehicleLocationService;
+        public RentManager(IRentDal rentDal, IVehicleLocationService vehicleLocationService)
         {
             _rentDal = rentDal;
+            _vehicleLocationService = vehicleLocationService;
         }
 
         public IResult Add(Rent rent)
         {
+            rent.AracKonumu = ReserveLocation();
             _rentDal.Add(rent);
             return new SuccessResult(Messages.RentAdded);
         }
@@ -59,6 +62,60 @@ namespace Business.Concrete
         {
             _rentDal.Update(rent);
             return new SuccessResult(Messages.RentUpdated);
+        }
+
+        private int ReserveLocation()
+        {
+            int location = 0;
+            bool locationFind = false;
+
+            var vehicleLocations = _vehicleLocationService.GetAll().Data;
+            var rents = _rentDal.GetAll();
+
+            foreach (var vehicleLocation in vehicleLocations)
+            {
+                foreach (var rent in rents)
+                {
+                    if (vehicleLocation.Id == rent.AracKonumu && rent.AracDurumu == 1)
+                    {
+                        locationFind = false;
+                        break;
+                    }
+                    else
+                    {
+                        location = vehicleLocation.Id;
+                        locationFind = true;
+                    }
+                }
+                if (locationFind)
+                {
+                    break;
+                }
+                else
+                {
+                    foreach (var vehicleLocation2 in vehicleLocations)
+                    {
+                        foreach (var rent in rents)
+                        {
+                            if (vehicleLocation2.Id == rent.AracKonumu)
+                            {
+                                locationFind = false;
+                                break;
+                            }
+                            else
+                            {
+                                location = vehicleLocation2.Id;
+                                locationFind = true;
+                            }
+                        }
+                        if (locationFind)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            return location;
         }
     }
 }
