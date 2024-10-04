@@ -1,3 +1,27 @@
+<h1 align="center">Car Park</h1>
+
+<p>Platform: <b>Web</b></p>
+<p>Backend: <b>.Net Core MVC</b></p>
+<p>Architecture: <b>NLayared</b></p>
+<p>ORM: <b>Entity Framework</b></p>
+<p>Database: <b>MSSQL Server</b></p>
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left" witdh="320" height="320">
+  <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&amp;logo=c-sharp&amp;logoColor=white" alt="C#"> 
+  <img src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&amp;logo=.net&amp;logoColor=white" alt=".Net"> 
+  <img width="100" src="https://github.com/user-attachments/assets/c9cb3576-6fe9-4436-80c5-80515230a9cb" alt="Asp .Net Core MVC"> 
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML5"> 
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&amp;logo=bootstrap&amp;logoColor=white" alt="Bootstrap"> 
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&amp;logo=javascript&amp;logoColor=%23F7DF1E" alt="JavaScript"> 
+  <img src="https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&amp;logo=jquery&amp;logoColor=white" alt="jQuery">
+  <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&amp;logo=JSON%20web%20tokens" alt="JWT">
+  <img src="https://img.shields.io/badge/Microsoft%20SQL%20Sever-CC2927?style=for-the-badge&amp;logo=microsoft%20sql%20server&amp;logoColor=white" alt="MicrosoftSQLServer">
+</p>
+
+<h3 align="left">Project Images</h3>
+
 | Login | Register |
 | --- | --- |
 | ![Login](https://github.com/user-attachments/assets/2688397e-326c-497f-8f19-8317fce88ae6) | ![Register](https://github.com/user-attachments/assets/b3c418cd-dbaa-4c5e-98b4-dbf567ca37b1) |
